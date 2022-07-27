@@ -25,8 +25,8 @@ In addition, you can set the gamma, choose the methods of chromatic adaptation a
 Part of the code is ported to C++ from brucelindblum.com
 
 Requirements:
-C++11
-STL
+- C++11
+- STL
 
 Unit tests are implemented through gtest. Installed with the git command:
 git clone https://github.com/google/googletest.git -b release-1.11.0
