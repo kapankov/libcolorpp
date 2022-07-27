@@ -3,22 +3,22 @@
 The cross-platform Color++ library allows you to perform color conversions between HSV, HSL, RGB, XYZ and Lab models.
 
 Commonly used RGB color spaces are supported:
-Adobe RGB (1998)
-Apple RGB
-Best RGB
-Beta RGB
-Bruce RGB
-CIE RGB
-Color Match RGB
-Don RGB 4
-ECI RGB v2
-Ekta Space PS5
-NTSC RGB
-PAL/SECAM RGB
-ProPhoto RGB
-SMPTE-C RGB
-sRGB
-Wide Gamut RGB
+- Adobe RGB (1998)
+- Apple RGB
+- Best RGB
+- Beta RGB
+- Bruce RGB
+- CIE RGB
+- Color Match RGB
+- Don RGB 4
+- ECI RGB v2
+- Ekta Space PS5
+- NTSC RGB
+- PAL/SECAM RGB
+- ProPhoto RGB
+- SMPTE-C RGB
+- sRGB
+- Wide Gamut RGB
 
 In addition, you can set the gamma, choose the methods of chromatic adaptation and the white point.
 
