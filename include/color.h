@@ -64,7 +64,7 @@ template<typename T>
 typename T::type from_dbl(double v)
 {
 	if (std::is_same<T, dbl>::value)
-		return v;
+		return static_cast<typename T::type>(v);
 	return static_cast<typename T::type>(T::min() + v * (T::max() - T::min() + (std::is_integral<typename T::type>::value? 1: 0.)));
 }
 

@@ -61,20 +61,21 @@ enum class IlluminantEnum
 	F11 = 10
 };
 
-// we won't create a special class for matrices
+// we won't create a special class for matrices and XYZ
 using Mtx3x3 = double[3][3];
+using XYZ = double[3];
 
 /*!
 	\brief RGB ColorSpace parameters
 */
 typedef struct _RgbParams
 {
-	double RefWhiteRGB[3];
+	XYZ RefWhiteRGB;
 	double GammaRGB;
 	Mtx3x3 MtxRGB2XYZ;
 	Mtx3x3 MtxXYZ2RGB;
 	AdaptationEnum AdaptationMethod;
-	double RefWhite[3]; // for adaptation
+	XYZ RefWhite; // for adaptation
 	
 } RgbParams;
 

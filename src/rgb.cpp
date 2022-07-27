@@ -441,8 +441,8 @@ RgbParams get_rgb_params(RgbEnum color_space, AdaptationEnum adaptation, Illumin
 		break;
 	}
 
-	double m[3][3] = { {xr / yr, xg / yg, xb / yb}, {1.0, 1.0, 1.0}, {(1.0 - xr - yr) / yr, (1.0 - xg - yg) / yg, (1.0 - xb - yb) / yb} };
-	double mi[3][3] = { {1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0} };
+	Mtx3x3 m = { {xr / yr, xg / yg, xb / yb}, {1.0, 1.0, 1.0}, {(1.0 - xr - yr) / yr, (1.0 - xg - yg) / yg, (1.0 - xb - yb) / yb} };
+	Mtx3x3 mi = { {1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0} };
 	MtxInvert3x3(m, mi);
 
 	double sr = result.RefWhiteRGB[0] * mi[0][0] + result.RefWhiteRGB[1] * mi[0][1] + result.RefWhiteRGB[2] * mi[0][2];
