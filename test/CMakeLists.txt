@@ -10,7 +10,7 @@ if(MSVC)
     )
 endif()
 
-add_executable(${TEST_NAME} test.cpp ../src/hsv.cpp ../include/hsv.h ../src/hsl.cpp ../include/hsl.h)
+add_executable(${TEST_NAME} test.cpp ../src/hsv.cpp ../include/hsv.h ../src/hsl.cpp ../include/hsl.h ../src/rgb.cpp ../include/rgb.h)
 
 target_include_directories(${TEST_NAME} PUBLIC ../include ../googletest/googletest/include)
 

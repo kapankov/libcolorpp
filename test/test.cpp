@@ -116,7 +116,7 @@ TEST(hsl_to_rgb_to_hsl, colorpp_proc_test)
 			}
 }
 
-TEST(hsv_to_rgb_tohsv, colorpp_class_test)
+TEST(rgb_to_hsv_to_rgb, colorpp_class_test)
 {
 	const double value_epsilon = 8.882e-16;
 	for (int r = 0; r < 256; ++r)
@@ -136,4 +136,32 @@ TEST(hsv_to_rgb_tohsv, colorpp_class_test)
 					"rgb is: " << r << ", " << g << ", " << b;
 			}
 
+}
+
+TEST(rgb_to_xyz_to_rgb, colorpp_proc_test)
+{
+	const double value_epsilon = 4.495e-06;
+	auto params = colorpp::get_rgb_params();
+	for (int r = 0; r < 256; ++r)
+		for (int g = 0; g < 256; ++g)
+			for (int b = 0; b < 256; ++b)
+			{
+				double R = static_cast<double>(r) / 255.;
+				double G = static_cast<double>(g) / 255.;
+				double B = static_cast<double>(b) / 255.;
+				double X = 0.;
+				double Y = 0.;
+				double Z = 0.;
+				colorpp::rgb_to_xyz(R, G, B, X, Y, Z, params);
+				double r_res = 0.;
+				double g_res = 0.;
+				double b_res = 0.;
+				colorpp::xyz_to_rgb(X, Y, Z, r_res, g_res, b_res, params);
+				ASSERT_LT(std::abs(R - r_res), value_epsilon) <<
+					"rgb is: " << r << ", " << g << ", " << b;
+				ASSERT_LT(std::abs(G - g_res), value_epsilon) <<
+					"rgb is: " << r << ", " << g << ", " << b;
+				ASSERT_LT(std::abs(B - b_res), value_epsilon) <<
+					"rgb is: " << r << ", " << g << ", " << b;
+			}
 }

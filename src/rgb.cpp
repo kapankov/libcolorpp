@@ -59,7 +59,7 @@ static double Compand(double linear, const double gamma)
 	double companded;
 	if (gamma > 0.0)
 	{
-		companded = (linear >= 0.0) ? pow(linear, 1.0 / gamma) : -pow(-linear, 1.0 / gamma);
+		companded = (linear >= 0.0) ? std::pow(linear, 1.0 / gamma) : -std::pow(-linear, 1.0 / gamma);
 	}
 	else if (gamma < 0.0)
 	{
@@ -70,7 +70,7 @@ static double Compand(double linear, const double gamma)
 			sign = -1.0;
 			linear = -linear;
 		}
-		companded = (linear <= 0.0031308) ? (linear * 12.92) : (1.055 * pow(linear, 1.0 / 2.4) - 0.055);
+		companded = (linear <= 0.0031308) ? (linear * 12.92) : (1.055 * std::pow(linear, 1.0 / 2.4) - 0.055);
 		companded *= sign;
 	}
 	else
@@ -82,7 +82,7 @@ static double Compand(double linear, const double gamma)
 			sign = -1.0;
 			linear = -linear;
 		}
-		companded = (linear <= (216.0 / 24389.0)) ? (linear * 24389.0 / 2700.0) : (1.16 * pow(linear, 1.0 / 3.0) - 0.16);
+		companded = (linear <= (216.0 / 24389.0)) ? (linear * 24389.0 / 2700.0) : (1.16 * std::pow(linear, 1.0 / 3.0) - 0.16);
 		companded *= sign;
 	}
 	return companded;
@@ -93,7 +93,7 @@ static double InvCompand(double companded, const double gamma)
 	double linear;
 	if (gamma > 0.0)
 	{
-		linear = (companded >= 0.0) ? pow(companded, gamma) : -pow(-companded, gamma);
+		linear = (companded >= 0.0) ? std::pow(companded, gamma) : -std::pow(-companded, gamma);
 	}
 	else if (gamma < 0.0)
 	{
@@ -104,7 +104,7 @@ static double InvCompand(double companded, const double gamma)
 			sign = -1.0;
 			companded = -companded;
 		}
-		linear = (companded <= 0.04045) ? (companded / 12.92) : pow((companded + 0.055) / 1.055, 2.4);
+		linear = (companded <= 0.04045) ? (companded / 12.92) : std::pow((companded + 0.055) / 1.055, 2.4);
 		linear *= sign;
 	}
 	else

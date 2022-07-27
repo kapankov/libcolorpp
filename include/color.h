@@ -33,6 +33,7 @@ THE SOFTWARE.
 
 #include "hsv.h"
 #include "hsl.h"
+#include "rgb.h"
 
 namespace colorpp
 {
